@@ -5,5 +5,5 @@ import java.util.List;
 public interface QuestionsService {
 
 
-    List<String> getQuestions();
+    List<String> getQuestions(String filename);
 }

@@ -33,10 +33,11 @@ public class TelegramBot extends TelegramLongPollingBot {
         Command command = commandMap.getOrDefault(update.getMessage().getText(),new DefaultCommand());
         SendMessage response = new SendMessage(update.getMessage().getChatId().toString(),command.getAnswer());
         response.enableHtml(true);
+
         try {
             execute(response);
         } catch (TelegramApiException e) {
-            log.info(e.getMessage());
+            log.error(e.getMessage());
         }
     }
 
